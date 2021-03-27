@@ -5,7 +5,7 @@
 """
 import random as rand
 from classes.artist_class import Artist
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 import pandas as pd
 import smtplib
 import ssl
@@ -74,7 +74,14 @@ class Playlist(object):
                 if self.artist.get_last_played() < (datetime.today() - timedelta(weeks=12)):
                     self.playlist_artists.append(self.artist)
                     self.playlist_artist_ids.append(self.artist_id)
-                
+        
+        # Update the last played date in the artist database for this weeks artists
+        for artist in self.playlist_artists:        
+            self.last_played = date.today().strftime("%d/%m/%Y")
+            print(artist.get_artist_id_num())
+            self.artist_df.loc[artist.get_artist_id_num(),"last_played_date"] = self.last_played
+        self.artist_df.to_csv("artist_data.csv", mode='w+')
+        
         return(self.playlist_artists)
 
     def add_playlist_songs(self):
@@ -128,9 +135,9 @@ class Playlist(object):
         """
         self.port = 587
         self.smtp_server = 'smtp.gmail.com'
-        self.sender_email ="ENTER SENDER EMAIL ADDRESS HERE"
+        self.sender_email ="ENTER SEND EMAIL HERE"
         self.receiver_email = email_address
-        self.password ="ENTER SENDER EMAIL PASSWORD HERE"
+        self.password ="ENTER SEND EMAIL PASSWORD HERE"
         
         # Email content to send to Tim
         self.text = "\

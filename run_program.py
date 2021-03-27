@@ -32,4 +32,4 @@ if __name__ == "__main__":
     playlist.update_played_songs_df(playlist_songs)
     
     # Send playlist link email
-    playlist.send_playlist_email("ENTER RECIPIENT EMAIL ADDRESS HERE")
+    playlist.send_playlist_email("ENTER RECIPIENT EMAIL HERE")
