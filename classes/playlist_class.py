@@ -34,12 +34,7 @@ class Playlist(object):
         self.sp = sp
         self.played_songs_df = played_songs_df
         self.user_id = self.sp.me()["id"]
-        
-        # Extract a list of played songs from the played songs dataframe
-        self.played_songs_df = played_songs_df
-        self.played_song_uri_list = []
-        #TO DO
-        
+
         # Create a new playlist in user's spotify account
         self.playlist_json = self.sp.user_playlist_create(self.user_id, self.playlist_name)
         self.playlist_uri = self.playlist_json["uri"]
@@ -78,7 +73,6 @@ class Playlist(object):
         # Update the last played date in the artist database for this weeks artists
         for artist in self.playlist_artists:        
             self.last_played = date.today().strftime("%d/%m/%Y")
-            print(artist.get_artist_id_num())
             self.artist_df.loc[artist.get_artist_id_num(),"last_played_date"] = self.last_played
         self.artist_df.to_csv("artist_data.csv", mode='w+')
         
@@ -135,9 +129,9 @@ class Playlist(object):
         """
         self.port = 587
         self.smtp_server = 'smtp.gmail.com'
-        self.sender_email ="ENTER SEND EMAIL HERE"
+        self.sender_email ="ENTER SENDER EMAIL ADDRESS"
         self.receiver_email = email_address
-        self.password ="ENTER SEND EMAIL PASSWORD HERE"
+        self.password ="ENTER PASSWORD"
         
         # Email content to send to Tim
         self.text = "\

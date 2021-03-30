@@ -99,7 +99,7 @@ class Artist(object):
         self.new_release_songs = []
         self.song_popularity_dict = {}
         
-        # Copy 
+        # Copy song list for iteration purposes
         self.artist_songs_copy = self.artist_songs.copy()
         for song in self.artist_songs.copy():
             # Check to see if song has already been included in a playlist before
