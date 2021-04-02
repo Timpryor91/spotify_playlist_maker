@@ -4,6 +4,8 @@
 @author: timpr
 """
 from datetime import datetime
+import time
+import random as rand
 
 class Song(object):
     """
@@ -27,6 +29,12 @@ class Song(object):
         
         # Look up song release date and popularity score upon initialization of song object
         self.track_details = self.sp.track(self.song_uri)
+        
+        # Add intermittend sleeps to avoid API overloads
+        self.rand = rand.random()
+        if self.rand < 0.15:
+            time.sleep(1)
+        
         self.popularity = self.track_details["popularity"]
         self.release_date_precision = self.track_details["album"]["release_date_precision"]
         if self.release_date_precision == "year":

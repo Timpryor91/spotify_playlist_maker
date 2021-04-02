@@ -129,9 +129,9 @@ class Playlist(object):
         """
         self.port = 587
         self.smtp_server = 'smtp.gmail.com'
-        self.sender_email ="ENTER SENDER EMAIL ADDRESS"
+        self.sender_email ="ENTER SENDER EMAIL HERE"
         self.receiver_email = email_address
-        self.password ="ENTER PASSWORD"
+        self.password = "ENTER SENDER PASSWORD HERE"
         
         # Email content to send to Tim
         self.text = "\

@@ -15,8 +15,8 @@ def spotify_login():
         
     """
     ##### Update these to include your own client ID and client secret
-    SPOTIPY_CLIENT_ID = "ENTER CLIENT ID"
-    SPOTIPY_CLIENT_SECRET= "ENTER CLIENT SECRET"
+    SPOTIPY_CLIENT_ID = "ENTER CLIENT ID HERE"
+    SPOTIPY_CLIENT_SECRET= "ENTER CLIENT SECRET HERE"
     SPOTIPY_REDIRECT_URI = 'http://localhost:8888/callback'
     
     SCOPE = 'playlist-modify-public'

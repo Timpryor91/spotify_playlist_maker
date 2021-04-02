@@ -8,6 +8,7 @@ from classes.song_class import Song
 from datetime import datetime
 from datetime import timedelta
 import random as rand
+import time
 
 class Artist(object):
     """
